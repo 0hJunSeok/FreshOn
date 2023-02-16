@@ -10,7 +10,8 @@ CREATE TABLE users(						--회원
 
 CREATE TABLE product(					--상품
 	pcode number(5) PRIMARY KEY,		--상품코드
-	category number(7) NOT NULL,		--카테고리	
+	category varchar2(10) NOT NULL,		--카테고리	
+	subcategory varchar2(10) NOT NULL,	--서브카테고리	
 	name varchar2(100) NOT NULL,		--이름
 	price number(7) NOT NULL,			--가격
 	content varchar2(1000) NOT NULL,	--설명
