@@ -11,9 +11,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class product {
+public class Product {
 	private int pcode;
-	private int category;
+	private String category;
+	private String subcategory;
 	private String name;
 	private int price;
 	private String content;

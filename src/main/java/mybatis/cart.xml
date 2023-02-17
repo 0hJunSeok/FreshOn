@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="carts">
+   	<update id="update" parameterType="org.iclass.vo.Cart">
+	 	UPDATE cart
+		SET 
+			quantity=#{quantity}, totalprice=#{totalprice}
+		WHERE 
+			ccode=#{ccode}
+ 	</update>
+ 	 <insert id="insert" parameterType="org.iclass.vo.Cart">
+ 		INSERT INTO cart 
+ 			(ccode,id,pcode,quantity,totalprice)
+ 		VALUES 
+ 			(ccode_seq.nextval, #{id}, #{pcode}, #{quantity}, #{totalprice})
+ 	</insert>
+ </mapper>

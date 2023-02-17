@@ -13,7 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class orders {
+public class Orders {
 	private int ocode;
 	private String id;
 	private int pcode;

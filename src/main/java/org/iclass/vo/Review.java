@@ -13,7 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class review {
+public class Review {
 	private int rcode;
 	private int pcode;
 	private int ocode;

@@ -11,7 +11,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class cart {
+public class Cart {
 	private int ccode;
 	private String id;
 	private int pcode;
