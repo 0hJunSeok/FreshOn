@@ -25,9 +25,10 @@
 				</div>
 			</c:forEach>
 			<p><c:out value="${total }"/>원</p>
-			<button type="button" onclick="pay()">결제</button>
+			<button type="button" onclick="paymoney()">결제</button>
 			</form>
 		</div>
 	</main>
+	<script type="text/javascript" src="../js/orders.js"></script>
 </body>
 </html>
