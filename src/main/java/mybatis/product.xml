@@ -6,6 +6,9 @@
 	<select id="listAll" resultType="org.iclass.vo.Product">
 		select *
 		from product
+		<if test="category !=null">
+			where category = #{category}
+		</if>
 	</select>
 	 <select id="selectByPcode" parameterType="int" resultType="org.iclass.vo.Product">
  		SELECT * 

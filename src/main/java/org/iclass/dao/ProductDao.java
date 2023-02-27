@@ -1,6 +1,7 @@
 package org.iclass.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.iclass.vo.Product;
@@ -14,9 +15,9 @@ public class ProductDao {
 		return dao;
 	}
 	
-	public List<Product> list() {
+	public List<Product> list(Map<String, String> map) {
 		SqlSession mapperSession = SqlSessionBean.getSession();
-		List<Product> list = mapperSession.selectList("products.listAll");
+		List<Product> list = mapperSession.selectList("products.listAll",map);
 		mapperSession.close();
 		return list;
 	}

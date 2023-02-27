@@ -15,5 +15,34 @@
  			(ccode,id,pcode,quantity,totalprice)
  		VALUES 
  			(ccode_seq.nextval, #{id}, #{pcode}, #{quantity}, #{totalprice})
+ 		<selectKey keyProperty="ccode" resultType="int" order="AFTER">
+			SELECT ccode_seq.currval 
+			FROM dual
+		</selectKey>
  	</insert>
+ 	<select id="selectlist" parameterType="String" resultType="org.iclass.vo.Cart">
+ 	<![CDATA[
+		SELECT c.*, p.name, p.price, p.image FROM PRODUCT p 
+		JOIN (SELECT id, pcode, ccode, sum(quantity)"sumquant",
+			sum(totalprice)"sumtotal"
+			FROM cart
+			GROUP BY id,pcode,ccode 
+			HAVING count(pcode) > 0 AND id=#{id}) c
+		ON c.pcode=p.pcode
+ 	]]>					  
+ 	</select>
+ 	 <delete id="delete" parameterType="int">
+ 		DELETE FROM 
+ 			cart 
+ 		WHERE 
+ 			ccode=#{ccode}
+ 	</delete>
+ 	
+ 	 	<select id="selectByCcode" parameterType="int" resultType="org.iclass.vo.Cart">
+ 		SELECT * 
+ 		FROM 
+ 			cart 
+ 		WHERE 
+ 			ccode=#{ccode}   
+ 	</select>
  </mapper>

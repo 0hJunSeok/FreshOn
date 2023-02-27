@@ -16,7 +16,7 @@ public class CartController implements Controller {
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		String id = "ojs";
+		String id = "ojs";	//나중에 id 값 수정
 		int pcode = Integer.parseInt(request.getParameter("pcode"));
 		int price = Integer.parseInt(request.getParameter("price"));
 		int quantity = Integer.parseInt(request.getParameter("quantity"));

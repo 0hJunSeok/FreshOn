@@ -1,5 +1,7 @@
 package org.iclass.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.iclass.vo.Cart;
 
@@ -28,5 +30,25 @@ public class CartDao {
 		return result;
 	}
 	
-
+	public List<Cart> list(String id) {
+		SqlSession mapperSession = SqlSessionBean.getSession();
+		List<Cart> list = mapperSession.selectList("carts.selectlist", id);
+		mapperSession.close();
+		return list;
+	}
+	
+	public int delete(int ccode) {
+		SqlSession mapperSession = SqlSessionBean.getSession();
+		int result = mapperSession.delete("carts.delete",ccode);
+		mapperSession.commit();
+		mapperSession.close();
+		return result;
+	}
+	
+	public Cart selectByCcode(int ccode) {
+		SqlSession mapperSession = SqlSessionBean.getSession();
+		Cart vo = mapperSession.selectOne("carts.selectByCcode",ccode);
+		mapperSession.close();
+		return vo;
+	}
 }

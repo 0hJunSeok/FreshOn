@@ -5,9 +5,11 @@ import java.util.Map;
 
 import org.iclass.controller.product.CartController;
 import org.iclass.controller.product.CartViewController;
+import org.iclass.controller.product.DeleteCartController;
 import org.iclass.controller.product.ListController;
 import org.iclass.controller.product.OrdersController;
 import org.iclass.controller.product.OrdersViewController;
+import org.iclass.controller.product.PayController;
 import org.iclass.controller.product.ProductViewController;
 
 public class RequestControllerMapping {
@@ -17,8 +19,10 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/product/list","GET"), new ListController());			//상품목록
 		mapping.put(new RequestKeyValue("/product/cart","GET"), new CartViewController());		//장바구니목록
 		mapping.put(new RequestKeyValue("/product/cart","POST"), new CartController());			//장바구니정보
+		mapping.put(new RequestKeyValue("/product/cartdel","GET"), new DeleteCartController());	//장바구니삭제
 		mapping.put(new RequestKeyValue("/product/orders","GET"), new OrdersViewController());	//구매목록
 		mapping.put(new RequestKeyValue("/product/orders","POST"), new OrdersController());		//구매정보
+		mapping.put(new RequestKeyValue("/product/pay","POST"), new PayController());			//결제
 		mapping.put(new RequestKeyValue("/product/detail","GET"), new ProductViewController());//상품
 		
 		

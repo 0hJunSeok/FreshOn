@@ -17,4 +17,11 @@ public class Cart {
 	private int pcode;
 	private int quantity;
 	private int totalprice;	
+	
+	private String name;
+	private int price;
+	private String image;
+
+	private int sumquant;
+	private int sumtotal;
 }

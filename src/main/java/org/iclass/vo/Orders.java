@@ -20,4 +20,7 @@ public class Orders {
 	private int quantity;
 	private int totalprice;
 	private Timestamp odate;
+	private int ccode;
+	private String name;
+	private int price;
 }

@@ -9,7 +9,7 @@
 <title>상품</title>
 </head>
 <body>
-	<main id="product">
+	<main id="detail">
 		<h3>test</h3>
 		<p>상품 테스트</p>
 		<a href="list">홈으로</a> <a href="cart">장바구니</a>
@@ -30,22 +30,23 @@
 				<pre>${pro.content }</pre>
 			</div>
 			<div>
-				<form method="post" action="ordees">
-					<input type="hidden" name="pcode" value="${pro.pcode }"> <input
-						type="hidden" name="price" value="${pro.price }"> <input
-						type="number" min=1 max=10 name="quantity">
-					<button onclick="">구매</button>
+				<form method="post" action="orders?cart=no" name="order">
+					<input type="hidden" name="pcode" value="${pro.pcode }"> 
+					<input type="hidden" name="price" value="${pro.price }">
+					<input type="number" min=1 max=10 name="quant">
+					<button type="button" onclick="buy()">구매</button>
 				</form>
 			</div>
 			<div>
 				<form method="post" action="cart">
-					<input type="hidden" name="pcode" value="${pro.pcode }"> <input
-						type="hidden" name="price" value="${pro.price }"> <input
-						type="number" min=1 max=10 name="quantity">
-					<button onclick="">장바구니</button>
+					<input type="hidden" name="pcode" value="${pro.pcode }"> 
+					<input type="hidden" name="price" value="${pro.price }"> 
+					<input type="number" min=1 max=10 name="quantity">
+					<button>장바구니</button>
 				</form>
 			</div>
 		</div>
 	</main>
+	<script type="text/javascript" src="../js/orders.js"></script>	
 </body>
 </html>

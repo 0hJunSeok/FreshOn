@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="orders">
+   	 <insert id="insert" parameterType="org.iclass.vo.Orders">
+ 		INSERT INTO orders	 
+ 			(ocode,id,pcode,quantity,totalprice,ccode)
+ 		VALUES 
+ 			(ocode_seq.nextval, #{id}, #{pcode}, #{quantity}, #{totalprice}, #{ccode})
+ 	</insert>
+ 	<select id="selectlist" parameterType="String" resultType="org.iclass.vo.Orders">
+ 		select o.*, p.pcode, p.name, p.price
+ 		from orders o
+ 		join product p
+ 		on o.pcode = p.pcode and id=#{id}
+ 	</select>
+ 	<delete id="delete" parameterType="String">
+ 		DELETE FROM 
+ 			orders 
+ 		WHERE 
+ 			id=#{id}
+ 	</delete>
+ </mapper>

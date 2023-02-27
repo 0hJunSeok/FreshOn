@@ -25,8 +25,8 @@ CREATE TABLE cart(						--장바구니
 	pcode number(5) NOT NULL,			--상품코드(FK)
 	quantity number(5) NOT NULL,		--수량
 	totalPrice number(7) NOT NULL,		--총가격
-	FOREIGN KEY (id) REFERENCES users(id),
-	FOREIGN KEY (pcode) REFERENCES product(pcode)
+--	FOREIGN KEY (id) REFERENCES users(id),
+--	FOREIGN KEY (pcode) REFERENCES product(pcode)
 );
 CREATE SEQUENCE ccode_seq;
 
@@ -37,9 +37,12 @@ CREATE TABLE orders(					--주문
 	quantity number(5) NOT NULL,		--수량
 	totalPrice number(7) NOT NULL,		--총가격
 	odate DATE DEFAULT sysdate,			--주문일
-	FOREIGN KEY (id) REFERENCES users(id),
+--	FOREIGN KEY (id) REFERENCES users(id),
 	FOREIGN KEY (pcode) REFERENCES product(pcode)
 );
+ALTER TABLE orders ADD ccode number(5);
+ALTER TABLE orders ADD FOREIGN KEY (ccode) REFERENCES cart(ccode);
+ALTER TABLE orders ADD FOREIGN KEY (id) REFERENCES users(id); --나중에 실행
 CREATE SEQUENCE ocode_seq;
 
 CREATE TABLE review(					--리뷰
