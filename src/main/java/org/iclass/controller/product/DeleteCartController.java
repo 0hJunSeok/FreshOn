@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.iclass.controller.Controller;
 import org.iclass.dao.CartDao;
-import org.iclass.vo.Users;
+import org.iclass.vo.User;
 
 public class DeleteCartController implements Controller {
 
@@ -19,8 +19,8 @@ public class DeleteCartController implements Controller {
 		int ccode = Integer.parseInt(request.getParameter("ccode"));   
 		
 		HttpSession session = request.getSession();
-		Users users = (Users) session.getAttribute("users");
-//		if(users==null ) throw new RuntimeException(); 로그인후에 다시
+		User users = (User) session.getAttribute("user");
+//		if(users==null ) throw new RuntimeException();
 		
 		int result = dao.delete(ccode);
 		if(result == 1) {

@@ -20,6 +20,9 @@
 			FROM dual
 		</selectKey>
  	</insert>
+ 	<select id="count" parameterType="String" resultType="int">
+ 	
+ 	</select>
  	<select id="selectlist" parameterType="String" resultType="org.iclass.vo.Cart">
  	<![CDATA[
 		SELECT c.*, p.name, p.price, p.image FROM PRODUCT p 

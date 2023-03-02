@@ -38,7 +38,7 @@ CREATE TABLE orders(					--주문
 	totalPrice number(7) NOT NULL,		--총가격
 	odate DATE DEFAULT sysdate,			--주문일
 --	FOREIGN KEY (id) REFERENCES users(id),
-	FOREIGN KEY (pcode) REFERENCES product(pcode)
+--	FOREIGN KEY (pcode) REFERENCES product(pcode)
 );
 ALTER TABLE orders ADD ccode number(5);
 ALTER TABLE orders ADD FOREIGN KEY (ccode) REFERENCES cart(ccode);

@@ -9,11 +9,8 @@
 <title>상품</title>
 </head>
 <body>
+	<%@ include  file="../top.jsp" %>
 	<main id="detail">
-		<h3>test</h3>
-		<p>상품 테스트</p>
-		<a href="list">홈으로</a> <a href="cart">장바구니</a>
-		<hr style="color: white;">
 		<div
 			style="width: 1050px; margin: auto; overflow: hidden; border: 1px solid gray;">
 			<div>
@@ -30,10 +27,10 @@
 				<pre>${pro.content }</pre>
 			</div>
 			<div>
-				<form method="post" action="orders?cart=no" name="order">
+				<form method="post" action="pay?cart=no">
 					<input type="hidden" name="pcode" value="${pro.pcode }"> 
 					<input type="hidden" name="price" value="${pro.price }">
-					<input type="number" min=1 max=10 name="quant">
+					<input type="number" min=1 max=10 name="quant" value="1">
 					<button type="button" onclick="buy()">구매</button>
 				</form>
 			</div>
@@ -41,12 +38,22 @@
 				<form method="post" action="cart">
 					<input type="hidden" name="pcode" value="${pro.pcode }"> 
 					<input type="hidden" name="price" value="${pro.price }"> 
-					<input type="number" min=1 max=10 name="quantity">
+					<input type="number" min=1 max=10 name="quantity" value="1">
 					<button>장바구니</button>
+					<c:forEach var="rev" items="${rlist}">
+					<hr>
+                        <li>
+                            <ul class="crow">
+                                <li><c:out value="${rev.grade }" /></li>
+                                <li><c:out value="${rev.review }" /></li>
+                                <li><c:out value="${rev.rdate }" /></li>
+                            </ul>
+                        </li>
+                    </c:forEach>
 				</form>
 			</div>
 		</div>
 	</main>
-	<script type="text/javascript" src="../js/orders.js"></script>	
+	<script type="text/javascript" src="../js/cart.js"></script>
 </body>
 </html>

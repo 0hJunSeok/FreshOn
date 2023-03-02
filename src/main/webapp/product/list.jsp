@@ -5,39 +5,44 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+	#product{
+	float: left; 
+	border: 1px solid gray;
+	border-radius: 15px;
+	padding: 10px;
+	margin: 5px;	
+	}
+	#product:hover {
+	border: 3px solid gray;
+	margin: -3px;
+	}
+
+</style>
 <meta charset="UTF-8">
 <title>상품목록</title>
 </head>
 <body>
-	<ul>
-		<li><a href="list?category=농산물">농산물</a></li>
-		<li><a href="list?category=수산물">수산물</a></li>
-		<li><a href="list?category=축산물">축산물</a></li>
-		<li><a href="list?category=가공식품">가공식품</a></li>
-		<li><a href="list?category=소모품">소모품</a></li>
-	</ul>
-	<hr>
+	<%@ include  file="../top.jsp" %>
 	<main id="list">
-		<h3>test</h3>
-		<p>상품목록 테스트</p>
-		<a href="cart">장바구니</a>
-		<hr style="color: white;">
-		<div
-			style="width: 1050px; margin: auto; overflow: hidden; border: 1px solid gray;">
+		<div style="width: 1150px; margin: auto;">
 			<c:forEach var="pro" items="${products }">
 				<div class="gallery">
-					<div style="float: left; border: 1px solid gray; padding: 5px;">
+					<div id="product">
 						<a href="detail?pcode=${pro.pcode }"
 							style="text-decoration: none; color: black;"> 
 							<img width="250" height="300" 
 							src="/upload/${pro.image }" alt="${pro.name }">
+							<div style="font-size: 15px;">
 							<p>${pro.name }</p>
 							<p>${pro.price }원</p>
+							</div>
 						</a>
 					</div>
 				</div>
 			</c:forEach>
 		</div>
 	</main>
+	<%@ include file="../button.jsp" %>
 </body>
 </html>

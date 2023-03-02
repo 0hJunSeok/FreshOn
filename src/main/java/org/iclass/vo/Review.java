@@ -14,10 +14,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 public class Review {
-	private int rcode;
-	private int pcode;
+	private int rcode;	
+	private int pcode; //-상품코드(FK)
 	private int ocode;
-	private int grade;
+	private String grade;
 	private String review;
 	private String ip;
 	private Timestamp rdate;

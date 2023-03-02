@@ -1,6 +1,8 @@
 package org.iclass.controller.product;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -8,28 +10,37 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.iclass.controller.Controller;
-import org.iclass.dao.CartDao;
-import org.iclass.dao.OrdersDao;
-import org.iclass.vo.Users;
+import org.iclass.dao.ProductDao;
+import org.iclass.vo.Product;
+import org.iclass.vo.User;
 
 public class PayController implements Controller {
 
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		OrdersDao dao = OrdersDao.getInstance();
-		String id = "ojs";//request.getParameter("id");   
+		request.setCharacterEncoding("UTF-8");
 		
-		HttpSession session = request.getSession();
-		Users users = (Users) session.getAttribute("users");
-//		if(users==null ) throw new RuntimeException(); 로그인후에 다시
+		HttpSession session = request.getSession();  
+		User users = (User) session.getAttribute("user");
+		String id = users.getId();
 		
-		int result = dao.delete(id);
-		if(result == 1) {
-			response.sendRedirect("list"); 
-		}else {
-			response.sendRedirect("list"); 
+		String[] pcodes = request.getParameterValues("pcode");
+//		String[] prices = request.getParameterValues("price");
+		String[] ccodes = request.getParameterValues("ccode");
+		String[] quants = request.getParameterValues("quant");
+		ProductDao dao = ProductDao.getInstance();
+	
+		List<Product> paylist = new ArrayList<>();
+		for(String p : pcodes) {
+			paylist.add(dao.selectByPcode(Integer.parseInt(p)));
 		}
 		
+		session.setAttribute("paylist", paylist);  
+		session.setAttribute("ccodes", ccodes);		//개ㅛ으로 가져가서 카트테이블 삭제
+		session.setAttribute("quants", quants);		
+		
+		response.sendRedirect("pay");
+	
 	}
 
 }

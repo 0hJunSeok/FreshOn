@@ -13,13 +13,13 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Users {
+public class User {
 	private String id;
 	private String password;
 	private String name;
 	private String email;
 	private String address;
 	private String phone;
-	private Timestamp udate;
-
+	private Timestamp udate;	
+	
 }

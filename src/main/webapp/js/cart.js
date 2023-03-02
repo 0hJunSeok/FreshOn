@@ -18,3 +18,17 @@
 		}
 	
 	document.querySelectorAll('.sumquant').forEach(q => q.addEventListener('change',qchange))
+	
+	function buy(){
+	if(confirm('구매하시겠습니까?')){
+		alert('결제 페이지로 이동합니다.')
+		document.forms[1].submit()
+	}
+}	
+
+	function order(){
+	if(confirm('결제하시겠습니까?')){
+		alert('결제가 완료되었습니다.')
+		document.forms[1].submit()
+	}
+}

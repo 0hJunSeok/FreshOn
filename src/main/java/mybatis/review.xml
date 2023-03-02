@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="review">
+ 
+ 	<insert id="insert" parameterType="org.iclass.vo.Review" useGeneratedKeys="false" >
+ 		INSERT INTO review
+ 			(rcode,pcode,ocode,grade,review,ip) 
+		VALUES 
+			(rcode_seq.nextval,#{pcode},#{ocode},#{grade},#{review},#{ip})
+ 	</insert>  
+ 	
+ 	<update id="update" parameterType="org.iclass.vo.Review">
+	 	UPDATE review
+		SET 
+			grade=#{grade}, review=#{review} ,ip=#{ip}
+		WHERE 
+			rcode=#{rcode}
+ 	</update>
+ 	
+ 	<delete id="delete" parameterType="long">
+ 		DELETE FROM 
+ 			community 
+ 		WHERE 
+ 			rcode=#{rocde}
+ 	</delete>
+ 	
+ 	<select id="selectByPcode" parameterType="int" resultType="org.iclass.vo.Review">
+ 		SELECT * 
+ 		FROM review 
+ 		WHERE 
+ 			pcode=#{pcode}
+ 	</select>
+ </mapper>
+ 
