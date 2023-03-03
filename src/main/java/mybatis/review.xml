@@ -7,9 +7,9 @@
  
  	<insert id="insert" parameterType="org.iclass.vo.Review" useGeneratedKeys="false" >
  		INSERT INTO review
- 			(rcode,pcode,ocode,grade,review,ip) 
+ 			(rcode,pcode,ocode,grade,review,ip,id) 
 		VALUES 
-			(rcode_seq.nextval,#{pcode},#{ocode},#{grade},#{review},#{ip})
+			(rcode_seq.nextval,#{pcode},#{ocode},#{grade},#{review},#{ip},#{id})
  	</insert>  
  	
  	<update id="update" parameterType="org.iclass.vo.Review">

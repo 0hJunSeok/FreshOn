@@ -143,8 +143,8 @@ body {
     </div>
     <button type="submit" class="btn btn-primary">로그인</button><br>
   </form>
-  <h5>아직 회원가입을 하지 않으셨나요? <a href="join_select.jsp">회원가입하기</a></h5><br>
-  <h5>비밀번호를 잊으셨나요? <a href="find">아이디/비밀번호찾기</a></h5>  
+  <h5>아직 회원가입을 하지 않으셨나요? <a href="join">회원가입하기</a></h5><br>
+  <h5>비밀번호를 잊으셨나요? <a href="#">아이디/비밀번호찾기</a></h5>  
 </div>
   <script type="text/javascript">
   	console.log('${param.incorrect}')

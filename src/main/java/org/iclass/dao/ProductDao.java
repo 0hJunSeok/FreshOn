@@ -37,5 +37,13 @@ public class ProductDao {
 		return vo;
 	}
 	
+	public Product delete(int pcode) {
+		SqlSession mapperSession = SqlSessionBean.getSession();
+		Product vo = mapperSession.selectOne("products.delete",pcode);
+		mapperSession.commit();
+		mapperSession.close();
+		return vo;
+	}
+	
 	
 }

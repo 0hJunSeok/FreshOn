@@ -13,13 +13,12 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Review {
-	private int rcode;	
-	private int pcode; //-상품코드(FK)
-	private int ocode;
-	private String grade;
-	private String review;
-	private String ip;
-	private Timestamp rdate;
-	private String id;
+public class OrdersProduct {
+private int pcode;
+private int ocode;
+private int quantity;
+private Timestamp odate;
+private String name;
+private int price;
+private String image;
 }

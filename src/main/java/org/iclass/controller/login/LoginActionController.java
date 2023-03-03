@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.iclass.controller.Controller;
-import org.iclass.dao.MemberDao;
+import org.iclass.dao.NewMemberDao;
 import org.iclass.vo.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +28,7 @@ public class LoginActionController implements Controller {
 		Map<String, String> map = new HashMap<>();
 		map.put("id", id);
 		map.put("password", password);
-		MemberDao dao = MemberDao.getInstance();
+		NewMemberDao dao = NewMemberDao.getInstance();
 		User vo = dao.login(map);
 		
 		String url= request.getContextPath();

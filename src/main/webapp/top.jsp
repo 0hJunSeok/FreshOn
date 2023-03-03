@@ -166,7 +166,7 @@
 						<div class="head_quick_mypage">
 							<c:if test="${user.id == null }">
 							<a class="btn_login" href="${pageContext.request.contextPath }/member/login">로그인</a>
-                            <a href="#" class="btn_m_join lm10">회원가입</a>
+                            <a href="${pageContext.request.contextPath }/member/join" class="btn_m_join lm10">회원가입</a>
                             </c:if>
 							<c:if test="${user.id != null && user.id != 'admin' }">
 							<!-- 로그인 후 관리자와 마이페이지 -->
@@ -208,7 +208,7 @@
 							<c:if test="${user.id != null && user.id == 'admin' }">
 								<div class="my_page_btn">
 								<div class="tobtn">
-									마이페이지 <span class="arrow"></span>
+									관리자 <span class="arrow"></span>
 								</div>
 
 								<div class="mypage_pop">
@@ -218,13 +218,23 @@
 											<a href="#"><span
 												class="name">${user.name} </span>님 반갑습니다.</a>
 										</div>
+										<div class="pop_list">
+											<ul>
+												<li><a
+													href="${pageContext.request.contextPath }/admin/goods">상품등록</a>
+												</li>
+												<li><a
+													href="${pageContext.request.contextPath }/admin/list">상품목록</a>
+												</li>
+											</ul>
+										</div>
 										<div class="pop_logout">
 											<a href="${pageContext.request.contextPath }/member/logout">로그아웃</a>
 										</div>
 									</div>
 								</div>
 							</div>
-							<button>상품 등록</button>
+
 							</c:if>
 
 

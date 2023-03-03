@@ -1,7 +1,6 @@
 package org.iclass.controller.admin;
 
 import java.io.IOException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +23,7 @@ public class ProductSaveController implements Controller {
 			//상품 등록 저장
 			
 			//서버에 전송될 위치(파일시스템 경로)
-			String path = "#";
+			String path = "D:\\Coding\\workspace\\FreshOn\\upload";
 			
 			//업로드 가능한 최대 크기(바이트)
 			int maxSize = 10*1024*1024;		//1024바이트=1KB, 10MByte로 설정
@@ -40,7 +39,7 @@ public class ProductSaveController implements Controller {
 			//기존 방식처럼 text 타입 등 파라미터 받아오기
 			String category = multiRequest.getParameter("category");
 			String subcategory = multiRequest.getParameter("subcategory");
-			String name = multiRequest.getParameter("name");
+			String name = multiRequest.getParameter("title");
 			int price = Integer.parseInt(multiRequest.getParameter("price"));
 			String content = multiRequest.getParameter("content");
 			
@@ -55,7 +54,7 @@ public class ProductSaveController implements Controller {
 			 if(dao.insert(Product)==1) 
 			 { url="list"; }
 			 else 
-			 { url="product"; }
+			 { url="goods"; }
 			 		
 			 		
 			 

@@ -15,12 +15,11 @@
 		WHERE 
 			id=#{id} and password=#{password}
 	</select> 	
-	<update id="test" parameterType="java.util.Map"> 
-		UPDATE users
-		SET password=#{hashpassword}
-		WHERE 
-			password=#{oldpassword}
-	</update>
+	
+	<insert id="insert" parameterType="org.iclass.vo.User">
+		INSERT INTO USERS(id,password,name,email,address,phone,udate)
+		VALUES(#{id},#{password},#{name},#{email},#{address},#{phone},sysdate)
+	</insert>
  </mapper>
  
  

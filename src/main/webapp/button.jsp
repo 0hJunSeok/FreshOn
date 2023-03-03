@@ -42,16 +42,13 @@
 
             <div class="f_info cf">
                 <div class="info info01">
-                    <h3 class="title">스마트푸드네트웍스 주식회사 <br><span class="copy">&copy; 2020 by Smart Food Networks Corp. All rights reserved.</span>
+                    <h3 class="title">코리아 IT 아카데미 <br><span class="copy"> &copy; 2015 KOREA INFORMATION TECHNOLOGY ACADEMY. ALL RIGHTS RESERVED</span>
                     </h3>
-                    <p style="display: none;">스마트푸드네트웍스 주식회사</p>
-                    <p>주소 : 서울특별시 강남구 남부순환로 2753, 3층                        (우)06274</p>
-                    <p>대표자 : 조성수, 김민정<span class="bar"> | </span>사업자등록번호
-                        : 719-87-01744 <a
-                            href="#"
-                            title="사업자정보확인(새창열림)" target="_blank" class="nyroModal" style="display:none;">[사업자정보 확인]</a>
-                    </p>
-                    <p>통신판매번호 : 제2022-서울강남-01377호                </div>
+                    <p style="display: none;">코리아 IT</p>
+                    <p>주소 : 강남지점 1관 서울시 강남구 테헤란로 146 현익빌딩 3,4층<br>	
+							강남지점 2관 서울시 강남구 테헤란로 26길 12 제일비전타워 13층</p>
+                    <p>팀명 : FreshON </p>
+                    <p>팀원 : 권형진 송준호 오준석 조영웅                </div>
                 <div class="info info02">
                     <h3 class="title">
                         고객센터 1522-4935

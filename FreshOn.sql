@@ -45,16 +45,18 @@ ALTER TABLE orders ADD FOREIGN KEY (ccode) REFERENCES cart(ccode);
 ALTER TABLE orders ADD FOREIGN KEY (id) REFERENCES users(id); --나중에 실행
 CREATE SEQUENCE ocode_seq;
 
-CREATE TABLE review(					--리뷰
-	rcode number(5) PRIMARY KEY,		--리뷰코드
-	pcode number(5) NOT NULL,			--상품코드(FK)
-	ocode number(5) NOT NULL,			--주문코드(FK)
-	grade number(5)	NOT NULL,			--평점
-	review varchar2(1000) NOT NULL,		--내용
-	ip varchar2(20) NOT NULL,			--ip
-	rdate DATE DEFAULT sysdate,			--작성일
-	FOREIGN KEY (pcode) REFERENCES product(pcode),
-	FOREIGN KEY (ocode) REFERENCES orders(ocode)
+CREATE TABLE review(                    --리뷰
+    rcode number(5) PRIMARY KEY,        --리뷰코드
+    pcode number(5) NOT NULL,            --상품코드(FK)
+    ocode number(5) NOT NULL,            --주문코드(FK)
+    grade varchar2(100)    NOT NULL,        --평점
+    review varchar2(1000) NOT NULL,        --내용
+    ip varchar2(20) default '127.0.0.1',            --ip
+    rdate DATE DEFAULT sysdate,            --작성일
+    id varchar2(20) NOT NULL
+--    FOREIGN KEY (pcode) REFERENCES product(pcode),
+--    FOREIGN KEY (ocode) REFERENCES orders(ocode),
+--    FOREIGN KEY (id) REFERENCES users(id)
 );
 CREATE SEQUENCE rcode_seq;
 

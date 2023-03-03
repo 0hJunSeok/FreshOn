@@ -8,29 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.iclass.controller.Controller;
-import org.iclass.dao.ProductDao;
-import org.iclass.vo.Product;
+import org.iclass.dao.OrdersDao;
+import org.iclass.vo.OrdersProduct;
+
 
 public class ReviewController implements Controller {
 
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			request.setAttribute("page",request.getParameter("page"));
+		int ocode = Integer.parseInt(request.getParameter("ocode"));			
 			
-			ProductDao productDao = ProductDao.getInstance();
-			Product product = productDao.selectByPcode(Integer.parseInt(request.getParameter("pcode")));
-			
-			
-			
-			request.setAttribute("pcode", product.getPcode());
-			request.setAttribute("category", product.getCategory());
-			request.setAttribute("subcategory", product.getSubcategory());
-			request.setAttribute("name", product.getName());
-			request.setAttribute("price", product.getPrice());
-			request.setAttribute("content", product.getContent());
-			request.setAttribute("image", product.getImage());
-			
-			request.setAttribute("ocode",request.getParameter("ocode"));
+		OrdersDao dao = OrdersDao.getInstance();
+		OrdersProduct order = dao.selectOne(ocode);
+		request.setAttribute("order",order);
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("write.jsp");
 			dispatcher.forward(request, response);

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.iclass.vo.Orders;
+import org.iclass.vo.OrdersProduct;
 
 import mybatis.SqlSessionBean;
 
@@ -35,5 +36,12 @@ public class OrdersDao {
 		mapperSession.commit();
 		mapperSession.close();
 		return result;
+	}
+	
+	public OrdersProduct selectOne(int ocode) {
+		SqlSession mapperSession = SqlSessionBean.getSession();
+		OrdersProduct order = mapperSession.selectOne("orders.selectOne",ocode);
+		mapperSession.close();
+		return order;
 	}
 }

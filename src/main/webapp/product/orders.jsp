@@ -11,20 +11,19 @@
 <body>
 <%@ include file="../top.jsp" %>
 	<main id="orders">
-		<div style="width: 1050px; margin: auto; overflow: hidden; border: 1px solid gray;">
+		<div style="width: 1050px; margin: auto; overflow: hidden; font-size: 17px;">
 			<c:set var="total" value="0"/>
 			<form method="post" action="pay" name="pay">
 			<input type="hidden" name="id" value="${users.id }">
 			<c:forEach var="pro" items="${orders }">
 				<div>
 						<p>${pro.name } ${pro.price }원 ${pro.quantity }개 ${pro.totalprice }원</p>
-						<p>${pro.odate }</p>
 						<p><c:set var="total" value="${total + pro.totalprice }"/></p>	
 						<p><a href="/FreshOn/review/write?ocode=${pro.ocode }"
-							style="text-decoration: none; color: black;">리뷰작성하기</a></p>
+							style="text-decoration: none; color: black;">리뷰작성하기</a></p><br>
 				</div>
 			</c:forEach>
-			<p><c:out value="${total }"/>원</p>
+			<p>총 주문금액 <c:out value="${total }"/>원</p>
 			</form>
 		</div>
 	</main>

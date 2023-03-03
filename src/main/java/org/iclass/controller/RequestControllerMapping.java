@@ -3,6 +3,13 @@ package org.iclass.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.iclass.controller.admin.ProductAdminDeleteController;
+import org.iclass.controller.admin.ProductAdminListController;
+import org.iclass.controller.admin.ProductAdminViewController;
+import org.iclass.controller.admin.ProductInsertController;
+import org.iclass.controller.admin.ProductSaveController;
+import org.iclass.controller.login.JoinActionController;
+import org.iclass.controller.login.JoinController;
 import org.iclass.controller.login.LoginActionController;
 import org.iclass.controller.login.LoginViewController;
 import org.iclass.controller.login.LogoutController;
@@ -10,7 +17,7 @@ import org.iclass.controller.product.CartController;
 import org.iclass.controller.product.CartViewController;
 import org.iclass.controller.product.DeleteCartController;
 import org.iclass.controller.product.ListController;
-//import org.iclass.controller.product.OrdersController;
+import org.iclass.controller.product.OrdersController;
 import org.iclass.controller.product.OrdersViewController;
 import org.iclass.controller.product.PayViewController;
 import org.iclass.controller.product.PayController;
@@ -30,13 +37,22 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/product/pay","GET"), new PayViewController());			//결제view
 		mapping.put(new RequestKeyValue("/product/pay","POST"), new PayController());			//결제
 		mapping.put(new RequestKeyValue("/product/orders","GET"), new OrdersViewController());	//구매목록
-//		mapping.put(new RequestKeyValue("/product/orders","POST"), new OrdersController());		//구매정보
+		mapping.put(new RequestKeyValue("/product/orders","POST"), new OrdersController());		//구매정보
 		//로그인
 		mapping.put(new RequestKeyValue("/member/login", "GET"), new LoginViewController());
 		mapping.put(new RequestKeyValue("/member/login", "POST"), new LoginActionController());
 		mapping.put(new RequestKeyValue("/member/logout", "GET"), new LogoutController());
+		mapping.put(new RequestKeyValue("/member/join", "POST"), new JoinActionController());
+		mapping.put(new RequestKeyValue("/member/join", "GET"), new JoinController());
+		//리뷰
 		mapping.put(new RequestKeyValue("/review/write", "GET"), new ReviewController());
 		mapping.put(new RequestKeyValue("/review/write", "POST"), new ReviewSaveController());
+		//관리자
+		mapping.put(new RequestKeyValue("/admin/goods", "GET"), new ProductInsertController());
+		mapping.put(new RequestKeyValue("/admin/list", "GET"), new ProductAdminListController());
+		mapping.put(new RequestKeyValue("/admin/detail", "GET"), new ProductAdminViewController());
+		mapping.put(new RequestKeyValue("/admin/delete", "GET"), new ProductAdminDeleteController());
+		mapping.put(new RequestKeyValue("/admin/new", "POST"), new ProductSaveController());
 
 		
 		

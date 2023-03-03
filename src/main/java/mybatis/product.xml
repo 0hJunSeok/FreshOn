@@ -21,10 +21,14 @@
  		INSERT INTO product
  			(pcode,category,subcategory,name,price,content,image) 
 		VALUES 
-			(pcode_seq.nextval,#{category},#{subcategory},#{name},#{price},#{content},#{image})
+			(pcode_seq.nextval,#{category},#{subcategory,jdbcType=VARCHAR},#{name},#{price},#{content},#{image})
 		<selectKey keyProperty="pcode" resultType="int" order="AFTER">
 			SELECT pcode_seq.currval 
 			FROM dual
 		</selectKey>	
  	</insert>  
+ 	<delete id="delete" parameterType="int">
+ 		delete from product
+ 		where pcode = #{pcode}
+ 	</delete>
  </mapper>

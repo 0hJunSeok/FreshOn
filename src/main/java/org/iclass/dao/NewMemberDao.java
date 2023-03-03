@@ -7,10 +7,10 @@ import org.iclass.vo.User;
 
 import mybatis.SqlSessionBean;
 
-public class MemberDao {
-	private static MemberDao dao = new MemberDao();
-	private MemberDao() {}
-	public static MemberDao getInstance() {
+public class NewMemberDao {
+	private static NewMemberDao dao = new NewMemberDao();
+	private NewMemberDao() {}
+	public static NewMemberDao getInstance() {
 		return dao;
 	}
 
@@ -20,5 +20,12 @@ public class MemberDao {
 		mapperSession.close();
 		return vo;
 	}
-	
+	public int insert(User vo1){
+		SqlSession mapperSession = SqlSessionBean.getSession();
+		int vo = mapperSession.insert("newmember.insert",vo1);
+		mapperSession.commit();
+		mapperSession.close();
+		return vo;
+		
+	}
 }

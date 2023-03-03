@@ -21,4 +21,16 @@
  		WHERE 
  			id=#{id}
  	</delete>
+ 	<select id="selectOne" parameterType="int" resultType="org.iclass.vo.OrdersProduct">
+         select o.ocode ocode,
+             o.quantity quantity,
+             o.odate odate,
+             p.pcode pcode, 
+             p.name name, 
+             p.price price, 
+             p.image image
+         from orders o
+         join product p
+         on o.pcode = p.pcode and o.ocode=#{ocode}
+     </select>
  </mapper>
